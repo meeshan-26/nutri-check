@@ -1,0 +1,171 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NutriCheck | Food Calorie Checker</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,500;9..144,600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header class="navbar">
+        <a href="#" class="logo">🍏 NutriCheck</a>
+        <span class="nav-label">Food Nutrition Checker</span>
+    </header>
+
+    <main class="container">
+        <section class="hero">
+            <div class="hero-copy">
+                <span class="tag">A LITTLE MORE MINDFUL, EVERY DAY</span>
+                <h1>Good food.<br><span>Clear numbers.</span></h1>
+                <p>Find the nutrition in everyday ingredients, from your first coffee to dinner.</p>
+                <a class="hero-link" href="#food-checker">Explore nutrition <span aria-hidden="true">↓</span></a>
+            </div>
+            <figure class="hero-visual">
+                <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=1200&q=85" alt="Colorful fresh salad with greens, tomatoes and grains">
+                <figcaption><span class="visual-dot"></span> Simple choices, better informed</figcaption>
+                <span class="visual-note">Fresh<br>starts here</span>
+            </figure>
+        </section>
+
+        <section class="checker" id="food-checker">
+            <div class="tabs">
+                <button class="tab active" id="searchTab">
+                    🔎 Search Food
+                </button>
+                <button class="tab" id="photoTab">
+                    📷 Upload Photo
+                </button>
+            </div>
+
+            <div id="searchPanel" class="panel">
+                <label for="foodSearch">Enter a food name</label>
+                <div class="search-row">
+                    <input
+                        type="text"
+                        id="foodSearch"
+                        placeholder="Try idli, dosa, banana..."
+                        autocomplete="off"
+                    >
+                    <button id="searchButton" class="primary-btn">
+                        Check
+                    </button>
+                </div>
+                <p class="hint">Try: Idli, Dosa, Rice, Egg, Apple or Banana.</p>
+                <div id="suggestions" class="suggestions"></div>
+            </div>
+
+            <div id="photoPanel" class="panel hidden">
+                <label for="foodImage">Choose a food photo</label>
+                <input
+                    type="file"
+                    id="foodImage"
+                    accept="image/*"
+                >
+                <div id="photoPreview" class="photo-preview">
+                    <span>🍽️</span>
+                    <p>Your selected photo will appear here.</p>
+                </div>
+                <p class="hint">
+                    Photo upload previews your image only. It does not
+                    automatically recognize food yet.
+                </p>
+            </div>
+        </section>
+
+        <section id="resultSection" class="results hidden">
+            <div class="result-heading">
+                <div>
+                    <span class="tag">NUTRITION RESULTS</span>
+                    <h2 id="resultFood">Food Name</h2>
+                    <p id="resultBasis">Values per 100 g</p>
+                </div>
+                <span class="food-icon">🥗</span>
+            </div>
+
+            <div class="calorie-card">
+                <span>🔥 Estimated calories</span>
+                <div><strong id="calories">0</strong> <span>kcal</span></div>
+                <p id="servingLabel">For 100 g</p>
+            </div>
+
+            <div class="serving-control">
+                <label for="servingSize">Serving size (grams)</label>
+                <input
+                    type="number"
+                    id="servingSize"
+                    min="1"
+                    max="5000"
+                    value="100"
+                >
+            </div>
+
+            <h3>Nutrition breakdown</h3>
+            <div class="nutrition-grid">
+                <div class="nutrition-card">
+                    <span>🥩</span>
+                    <p>Protein</p>
+                    <strong id="protein">0 g</strong>
+                </div>
+                <div class="nutrition-card">
+                    <span>🍞</span>
+                    <p>Carbohydrates</p>
+                    <strong id="carbs">0 g</strong>
+                </div>
+                <div class="nutrition-card">
+                    <span>🥑</span>
+                    <p>Fat</p>
+                    <strong id="fat">0 g</strong>
+                </div>
+            </div>
+
+            <p class="disclaimer">
+                Nutrition values are estimates and may vary by recipe,
+                ingredients, and preparation method.
+            </p>
+        </section>
+
+        <section class="popular">
+            <h2>Explore popular foods</h2>
+            <p>Choose a food to check its estimated nutrition.</p>
+
+            <div class="food-grid">
+                <button class="food-card" data-food="Idli">
+                    <span>🥞</span><strong>Idli</strong>
+                    <small>Steamed food</small>
+                </button>
+                <button class="food-card" data-food="Dosa">
+                    <span>🫓</span><strong>Dosa</strong>
+                    <small>South Indian</small>
+                </button>
+                <button class="food-card" data-food="Rice">
+                    <span>🍚</span><strong>Rice</strong>
+                    <small>Cooked rice</small>
+                </button>
+                <button class="food-card" data-food="Egg">
+                    <span>🥚</span><strong>Egg</strong>
+                    <small>Whole egg</small>
+                </button>
+                <button class="food-card" data-food="Apple">
+                    <span>🍎</span><strong>Apple</strong>
+                    <small>Fresh fruit</small>
+                </button>
+                <button class="food-card" data-food="Banana">
+                    <span>🍌</span><strong>Banana</strong>
+                    <small>Fresh fruit</small>
+                </button>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>NutriCheck · Eat well, live well 💚</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
